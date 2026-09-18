@@ -1,22 +1,36 @@
 import '../global.css';
 
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
+import { Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { useColorScheme as useNativeWindColorScheme } from 'nativewind';
+import { useEffect } from 'react';
+import { Platform } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { NAV_THEME } from '@/lib/theme';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() === 'dark' ? 'dark' : 'light';
+  const { setColorScheme } = useNativeWindColorScheme();
+
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      setColorScheme(colorScheme);
+    }
+  }, [colorScheme, setColorScheme]);
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={NAV_THEME[colorScheme]}>
       <AnimatedSplashOverlay />
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ title: 'Page not found' }} />
       </Stack>
+      <PortalHost />
     </ThemeProvider>
   );
 }

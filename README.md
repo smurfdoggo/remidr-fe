@@ -11,6 +11,28 @@ npm start
 
 Use `npm run android`, `npm run ios`, or `npm run web` to open a platform. Run `npm run typecheck` to check TypeScript.
 
+## Component library
+
+React Native Reusables is configured with NativeWind v4. Component source lives in `src/components/ui`; Button, Text, Card, Input, and Label are included.
+
+```bash
+npm run ui:add -- dialog
+npm run ui:doctor
+```
+
+Use the library's Text component inside Button so the text inherits the button variant styles:
+
+```tsx
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+
+<Button onPress={() => {}}>
+  <Text>Save reminder</Text>
+</Button>
+```
+
+Theme variables live in `src/global.css`, with navigation colors in `src/lib/theme.ts` and Tailwind mappings in `tailwind.config.js`. The root layout includes the portal host and follows system appearance. Restart Metro with `npx expo start --clear` after changing styling configuration.
+
 ## File structure
 
 ```text
@@ -27,7 +49,8 @@ remidr-fe/
 |   |   `-- ui/              # Reusable UI primitives
 |   |-- hooks/               # Shared hooks
 |   |-- constants/           # Theme colors, spacing, fonts
-|   `-- global.css           # Web font variables
+|   |-- lib/                 # Reusables theme and class-name helper
+|   `-- global.css           # Tailwind directives, theme tokens, web font variables
 |-- assets/                  # Images and Expo icons
 |-- scripts/                 # Development utilities
 |-- app.json                 # Expo configuration
