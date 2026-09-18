@@ -50,6 +50,8 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
+    "theme:generate": "node scripts/generate-theme.cjs",
+    "theme:check": "node scripts/generate-theme.cjs --check",
     "ui:add": "node node_modules/@react-native-reusables/cli/bin.cjs add",
     "ui:doctor": "node node_modules/@react-native-reusables/cli/bin.cjs doctor"
   },
