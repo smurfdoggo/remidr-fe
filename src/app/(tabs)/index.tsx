@@ -1,98 +1,34 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useMemo, useState } from 'react';
+import { ScrollView, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useFonts, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { DashboardFontContext } from '@/hooks/use-dashboard-font';
+import { useTheme } from '@/hooks/use-theme';
+import { DashboardHeader } from '@/components/dashboard/dashboard-header';
+import { FinancialSummary } from '@/components/dashboard/financial-summary';
+import { BudgetOverview } from '@/components/dashboard/budget-overview';
+import { SpendingBreakdown } from '@/components/dashboard/spending-breakdown';
+import { UnpaidBillsSummary } from '@/components/dashboard/unpaid-bills-summary';
+import { sampleTransactions, sampleBills, sampleBudgets } from '@/data/dashboard-samples';
+import { monthlyAnalytics } from '@/lib/analytics';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
+export default function DashboardScreen() {
+  const [month, setMonth] = useState(() => { const now = new Date(); return { year: now.getFullYear(), month: now.getMonth() }; });
+  const [fontsReady] = useFonts({ NunitoRegular: Nunito_400Regular, NunitoSemibold: Nunito_600SemiBold, NunitoBold: Nunito_700Bold });
+  const theme = useTheme();
+  const insets = useSafeAreaInsets();
+  const analytics = useMemo(() => monthlyAnalytics(sampleTransactions, sampleBills, month.year, month.month, sampleBudgets), [month]);
+  return <DashboardFontContext.Provider value={fontsReady}>
+    <ScrollView style={{ flex: 1, backgroundColor: theme.background }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: insets.bottom + 110, paddingHorizontal: 16, alignItems: 'center' }}>
+      <View className="w-full max-w-3xl gap-5">
+        <View>
+          <DashboardHeader month={month} onMonthChange={setMonth} budget={analytics.budgetAmount} remaining={analytics.remainingBudget} />
+          <FinancialSummary income={analytics.income} expense={analytics.expense} />
+        </View>
+        <BudgetOverview budget={analytics.budgetAmount} expense={analytics.expense} remaining={analytics.remainingBudget} used={analytics.budgetUsed} />
+        <SpendingBreakdown categories={analytics.categories} />
+        <UnpaidBillsSummary bills={analytics.unpaidBills} amount={analytics.commitments} />
+      </View>
+    </ScrollView>
+  </DashboardFontContext.Provider>;
 }
-
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expooooooooooooo
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/(tabs)/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});

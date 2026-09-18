@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:44:35Z",
+  "title": "Design System: Remidr",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "tonalRamp": [
+          "oklch(15.00% 0.1764 266.33)",
+          "oklch(26.43% 0.1764 266.33)",
+          "oklch(37.86% 0.1764 266.33)",
+          "oklch(49.29% 0.1764 266.33)",
+          "oklch(60.71% 0.1764 266.33)",
+          "oklch(72.14% 0.1764 266.33)",
+          "oklch(83.57% 0.1764 266.33)",
+          "oklch(95.00% 0.1764 266.33)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "tonalRamp": [
+          "oklch(15.00% 0.0054 95.10)",
+          "oklch(26.43% 0.0054 95.10)",
+          "oklch(37.86% 0.0054 95.10)",
+          "oklch(49.29% 0.0054 95.10)",
+          "oklch(60.71% 0.0054 95.10)",
+          "oklch(72.14% 0.0054 95.10)",
+          "oklch(83.57% 0.0054 95.10)",
+          "oklch(95.00% 0.0054 95.10)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Foreground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0280 263.94)",
+          "oklch(26.43% 0.0280 263.94)",
+          "oklch(37.86% 0.0280 263.94)",
+          "oklch(49.29% 0.0280 263.94)",
+          "oklch(60.71% 0.0280 263.94)",
+          "oklch(72.14% 0.0280 263.94)",
+          "oklch(83.57% 0.0280 263.94)",
+          "oklch(95.00% 0.0280 263.94)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "tonalRamp": [
+          "oklch(15.00% 0.0000 89.88)",
+          "oklch(26.43% 0.0000 89.88)",
+          "oklch(37.86% 0.0000 89.88)",
+          "oklch(49.29% 0.0000 89.88)",
+          "oklch(60.71% 0.0000 89.88)",
+          "oklch(72.14% 0.0000 89.88)",
+          "oklch(83.57% 0.0000 89.88)",
+          "oklch(95.00% 0.0000 89.88)"
+        ]
+      },
+      "secondary": {
+        "role": "neutral",
+        "displayName": "Secondary",
+        "tonalRamp": [
+          "oklch(15.00% 0.0067 97.35)",
+          "oklch(26.43% 0.0067 97.35)",
+          "oklch(37.86% 0.0067 97.35)",
+          "oklch(49.29% 0.0067 97.35)",
+          "oklch(60.71% 0.0067 97.35)",
+          "oklch(72.14% 0.0067 97.35)",
+          "oklch(83.57% 0.0067 97.35)",
+          "oklch(95.00% 0.0067 97.35)"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Muted Foreground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0238 264.34)",
+          "oklch(26.43% 0.0238 264.34)",
+          "oklch(37.86% 0.0238 264.34)",
+          "oklch(49.29% 0.0238 264.34)",
+          "oklch(60.71% 0.0238 264.34)",
+          "oklch(72.14% 0.0238 264.34)",
+          "oklch(83.57% 0.0238 264.34)",
+          "oklch(95.00% 0.0238 264.34)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15.00% 0.0212 268.43)",
+          "oklch(26.43% 0.0212 268.43)",
+          "oklch(37.86% 0.0212 268.43)",
+          "oklch(49.29% 0.0212 268.43)",
+          "oklch(60.71% 0.0212 268.43)",
+          "oklch(72.14% 0.0212 268.43)",
+          "oklch(83.57% 0.0212 268.43)",
+          "oklch(95.00% 0.0212 268.43)"
+        ]
+      },
+      "destructive": {
+        "role": "secondary",
+        "displayName": "Destructive",
+        "tonalRamp": [
+          "oklch(15.00% 0.1793 21.80)",
+          "oklch(26.43% 0.1793 21.80)",
+          "oklch(37.86% 0.1793 21.80)",
+          "oklch(49.29% 0.1793 21.80)",
+          "oklch(60.71% 0.1793 21.80)",
+          "oklch(72.14% 0.1793 21.80)",
+          "oklch(83.57% 0.1793 21.80)",
+          "oklch(95.00% 0.1793 21.80)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.0088 264.52)",
+          "oklch(26.43% 0.0088 264.52)",
+          "oklch(37.86% 0.0088 264.52)",
+          "oklch(49.29% 0.0088 264.52)",
+          "oklch(60.71% 0.0088 264.52)",
+          "oklch(72.14% 0.0088 264.52)",
+          "oklch(83.57% 0.0088 264.52)",
+          "oklch(95.00% 0.0088 264.52)"
+        ]
+      },
+      "income": {
+        "role": "secondary",
+        "displayName": "Income",
+        "tonalRamp": [
+          "oklch(15.00% 0.1020 159.67)",
+          "oklch(26.43% 0.1020 159.67)",
+          "oklch(37.86% 0.1020 159.67)",
+          "oklch(49.29% 0.1020 159.67)",
+          "oklch(60.71% 0.1020 159.67)",
+          "oklch(72.14% 0.1020 159.67)",
+          "oklch(83.57% 0.1020 159.67)",
+          "oklch(95.00% 0.1020 159.67)"
+        ]
+      },
+      "expense": {
+        "role": "secondary",
+        "displayName": "Expense",
+        "tonalRamp": [
+          "oklch(15.00% 0.1317 34.61)",
+          "oklch(26.43% 0.1317 34.61)",
+          "oklch(37.86% 0.1317 34.61)",
+          "oklch(49.29% 0.1317 34.61)",
+          "oklch(60.71% 0.1317 34.61)",
+          "oklch(72.14% 0.1317 34.61)",
+          "oklch(83.57% 0.1317 34.61)",
+          "oklch(95.00% 0.1317 34.61)"
+        ]
+      },
+      "due-soon": {
+        "role": "secondary",
+        "displayName": "Due Soon",
+        "tonalRamp": [
+          "oklch(15.00% 0.1131 73.16)",
+          "oklch(26.43% 0.1131 73.16)",
+          "oklch(37.86% 0.1131 73.16)",
+          "oklch(49.29% 0.1131 73.16)",
+          "oklch(60.71% 0.1131 73.16)",
+          "oklch(72.14% 0.1131 73.16)",
+          "oklch(83.57% 0.1131 73.16)",
+          "oklch(95.00% 0.1131 73.16)"
+        ]
+      },
+      "chart-5": {
+        "role": "secondary",
+        "displayName": "Chart 5",
+        "tonalRamp": [
+          "oklch(15.00% 0.0992 310.48)",
+          "oklch(26.43% 0.0992 310.48)",
+          "oklch(37.86% 0.0992 310.48)",
+          "oklch(49.29% 0.0992 310.48)",
+          "oklch(60.71% 0.0992 310.48)",
+          "oklch(72.14% 0.0992 310.48)",
+          "oklch(83.57% 0.0992 310.48)",
+          "oklch(95.00% 0.0992 310.48)"
+        ]
+      },
+      "brand-decoration": {
+        "role": "neutral",
+        "displayName": "Brand Decoration",
+        "tonalRamp": [
+          "oklch(15.00% 0.1240 269.68)",
+          "oklch(26.43% 0.1240 269.68)",
+          "oklch(37.86% 0.1240 269.68)",
+          "oklch(49.29% 0.1240 269.68)",
+          "oklch(60.71% 0.1240 269.68)",
+          "oklch(72.14% 0.1240 269.68)",
+          "oklch(83.57% 0.1240 269.68)",
+          "oklch(95.00% 0.1240 269.68)"
+        ]
+      },
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "Dark Background",
+        "tonalRamp": [
+          "oklch(15.00% 0.0189 266.09)",
+          "oklch(26.43% 0.0189 266.09)",
+          "oklch(37.86% 0.0189 266.09)",
+          "oklch(49.29% 0.0189 266.09)",
+          "oklch(60.71% 0.0189 266.09)",
+          "oklch(72.14% 0.0189 266.09)",
+          "oklch(83.57% 0.0189 266.09)",
+          "oklch(95.00% 0.0189 266.09)"
+        ]
+      },
+      "dark-foreground": {
+        "role": "neutral",
+        "displayName": "Dark Foreground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0054 274.97)",
+          "oklch(26.43% 0.0054 274.97)",
+          "oklch(37.86% 0.0054 274.97)",
+          "oklch(49.29% 0.0054 274.97)",
+          "oklch(60.71% 0.0054 274.97)",
+          "oklch(72.14% 0.0054 274.97)",
+          "oklch(83.57% 0.0054 274.97)",
+          "oklch(95.00% 0.0054 274.97)"
+        ]
+      },
+      "dark-card": {
+        "role": "neutral",
+        "displayName": "Dark Card",
+        "tonalRamp": [
+          "oklch(15.00% 0.0280 263.94)",
+          "oklch(26.43% 0.0280 263.94)",
+          "oklch(37.86% 0.0280 263.94)",
+          "oklch(49.29% 0.0280 263.94)",
+          "oklch(60.71% 0.0280 263.94)",
+          "oklch(72.14% 0.0280 263.94)",
+          "oklch(83.57% 0.0280 263.94)",
+          "oklch(95.00% 0.0280 263.94)"
+        ]
+      },
+      "dark-primary": {
+        "role": "primary",
+        "displayName": "Dark Primary",
+        "tonalRamp": [
+          "oklch(15.00% 0.1093 269.98)",
+          "oklch(26.43% 0.1093 269.98)",
+          "oklch(37.86% 0.1093 269.98)",
+          "oklch(49.29% 0.1093 269.98)",
+          "oklch(60.71% 0.1093 269.98)",
+          "oklch(72.14% 0.1093 269.98)",
+          "oklch(83.57% 0.1093 269.98)",
+          "oklch(95.00% 0.1093 269.98)"
+        ]
+      },
+      "dark-secondary": {
+        "role": "neutral",
+        "displayName": "Dark Secondary",
+        "tonalRamp": [
+          "oklch(15.00% 0.0307 264.00)",
+          "oklch(26.43% 0.0307 264.00)",
+          "oklch(37.86% 0.0307 264.00)",
+          "oklch(49.29% 0.0307 264.00)",
+          "oklch(60.71% 0.0307 264.00)",
+          "oklch(72.14% 0.0307 264.00)",
+          "oklch(83.57% 0.0307 264.00)",
+          "oklch(95.00% 0.0307 264.00)"
+        ]
+      },
+      "dark-muted-foreground": {
+        "role": "neutral",
+        "displayName": "Dark Muted Foreground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0273 264.41)",
+          "oklch(26.43% 0.0273 264.41)",
+          "oklch(37.86% 0.0273 264.41)",
+          "oklch(49.29% 0.0273 264.41)",
+          "oklch(60.71% 0.0273 264.41)",
+          "oklch(72.14% 0.0273 264.41)",
+          "oklch(83.57% 0.0273 264.41)",
+          "oklch(95.00% 0.0273 264.41)"
+        ]
+      },
+      "dark-accent": {
+        "role": "neutral",
+        "displayName": "Dark Accent",
+        "tonalRamp": [
+          "oklch(15.00% 0.0681 266.19)",
+          "oklch(26.43% 0.0681 266.19)",
+          "oklch(37.86% 0.0681 266.19)",
+          "oklch(49.29% 0.0681 266.19)",
+          "oklch(60.71% 0.0681 266.19)",
+          "oklch(72.14% 0.0681 266.19)",
+          "oklch(83.57% 0.0681 266.19)",
+          "oklch(95.00% 0.0681 266.19)"
+        ]
+      },
+      "dark-accent-foreground": {
+        "role": "neutral",
+        "displayName": "Dark Accent Foreground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0770 270.09)",
+          "oklch(26.43% 0.0770 270.09)",
+          "oklch(37.86% 0.0770 270.09)",
+          "oklch(49.29% 0.0770 270.09)",
+          "oklch(60.71% 0.0770 270.09)",
+          "oklch(72.14% 0.0770 270.09)",
+          "oklch(83.57% 0.0770 270.09)",
+          "oklch(95.00% 0.0770 270.09)"
+        ]
+      },
+      "dark-destructive": {
+        "role": "secondary",
+        "displayName": "Dark Destructive",
+        "tonalRamp": [
+          "oklch(15.00% 0.1199 13.70)",
+          "oklch(26.43% 0.1199 13.70)",
+          "oklch(37.86% 0.1199 13.70)",
+          "oklch(49.29% 0.1199 13.70)",
+          "oklch(60.71% 0.1199 13.70)",
+          "oklch(72.14% 0.1199 13.70)",
+          "oklch(83.57% 0.1199 13.70)",
+          "oklch(95.00% 0.1199 13.70)"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Dark Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.0430 262.51)",
+          "oklch(26.43% 0.0430 262.51)",
+          "oklch(37.86% 0.0430 262.51)",
+          "oklch(49.29% 0.0430 262.51)",
+          "oklch(60.71% 0.0430 262.51)",
+          "oklch(72.14% 0.0430 262.51)",
+          "oklch(83.57% 0.0430 262.51)",
+          "oklch(95.00% 0.0430 262.51)"
+        ]
+      },
+      "dark-income": {
+        "role": "secondary",
+        "displayName": "Dark Income",
+        "tonalRamp": [
+          "oklch(15.00% 0.1157 161.33)",
+          "oklch(26.43% 0.1157 161.33)",
+          "oklch(37.86% 0.1157 161.33)",
+          "oklch(49.29% 0.1157 161.33)",
+          "oklch(60.71% 0.1157 161.33)",
+          "oklch(72.14% 0.1157 161.33)",
+          "oklch(83.57% 0.1157 161.33)",
+          "oklch(95.00% 0.1157 161.33)"
+        ]
+      },
+      "dark-expense": {
+        "role": "secondary",
+        "displayName": "Dark Expense",
+        "tonalRamp": [
+          "oklch(15.00% 0.0996 36.25)",
+          "oklch(26.43% 0.0996 36.25)",
+          "oklch(37.86% 0.0996 36.25)",
+          "oklch(49.29% 0.0996 36.25)",
+          "oklch(60.71% 0.0996 36.25)",
+          "oklch(72.14% 0.0996 36.25)",
+          "oklch(83.57% 0.0996 36.25)",
+          "oklch(95.00% 0.0996 36.25)"
+        ]
+      },
+      "dark-due-soon": {
+        "role": "secondary",
+        "displayName": "Dark Due Soon",
+        "tonalRamp": [
+          "oklch(15.00% 0.1161 83.99)",
+          "oklch(26.43% 0.1161 83.99)",
+          "oklch(37.86% 0.1161 83.99)",
+          "oklch(49.29% 0.1161 83.99)",
+          "oklch(60.71% 0.1161 83.99)",
+          "oklch(72.14% 0.1161 83.99)",
+          "oklch(83.57% 0.1161 83.99)",
+          "oklch(95.00% 0.1161 83.99)"
+        ]
+      },
+      "dark-chart-5": {
+        "role": "secondary",
+        "displayName": "Dark Chart 5",
+        "tonalRamp": [
+          "oklch(15.00% 0.0898 309.75)",
+          "oklch(26.43% 0.0898 309.75)",
+          "oklch(37.86% 0.0898 309.75)",
+          "oklch(49.29% 0.0898 309.75)",
+          "oklch(60.71% 0.0898 309.75)",
+          "oklch(72.14% 0.0898 309.75)",
+          "oklch(83.57% 0.0898 309.75)",
+          "oklch(95.00% 0.0898 309.75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Budget Amount",
+        "purpose": "Remaining budget and no-budget state."
+      },
+      "headline": {
+        "displayName": "Dashboard Title",
+        "purpose": "Local h1 size override."
+      },
+      "title": {
+        "displayName": "Section Heading",
+        "purpose": "Supporting cards; CSS weight remains inherited from primitive."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Dashboard information; falls back until fonts are loaded."
+      }
+    },
+    "shadows": [
+      {
+        "name": "primitive-small",
+        "value": "0 1px 2px 0 rgb(0 0 0 / .05)",
+        "purpose": "Web translation of inherited shadow-sm shadow-black/5 on financial summaries and applicable buttons; native shadow mapping is platform-dependent."
+      }
+    ],
+    "motion": [
+      {
+        "name": "month-dialog-fade",
+        "value": "fade",
+        "purpose": "React Native Modal animationType; no custom duration is specified."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "spending-horizontal",
+        "value": "600px",
+        "condition": "fontScale <= 1.2",
+        "purpose": "Otherwise stack pie and legend."
+      }
+    ],
+    "provenance": {
+      "source": "Source inspection of current Dashboard and canonical theme-tokens.json; native validation unavailable.",
+      "tonalRamps": "Synthesized OKLCH display strips, not implementation tokens; same hue/chroma stepped from 15% to 95% lightness.",
+      "boundaries": "Dashboard AppText font provider only; installed React Native Reusables primitives unchanged.",
+      "notCanonized": [
+        "Primitive CSS weights may differ from selected Nunito asset weights.",
+        "White pie seams remain in dark theme."
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Dashboard month-dialog control, translated from the installed primitive and local size overrides.",
+      "html": "<button class=\"ds-primary\">Apply</button>",
+      "css": ".ds-primary{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--primary));color:hsl(var(--primary-foreground));border:0;border-radius:8px;min-height:48px;padding:8px 16px;font-size:14px;font-weight:500;line-height:20px;cursor:pointer;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05)}.ds-primary:hover,.ds-primary:active{background:hsl(var(--primary) / .9)}.ds-primary:focus-visible{outline:3px solid hsl(var(--ring) / .5);outline-offset:2px;}.ds-primary:disabled{opacity:.5;pointer-events:none}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Dashboard month-dialog control, translated from the installed primitive and local size overrides.",
+      "html": "<button class=\"ds-outline\">Cancel</button>",
+      "css": ".ds-outline{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--background));color:hsl(var(--foreground));border:1px solid hsl(var(--border));border-radius:8px;min-height:48px;padding:8px 16px;font-size:14px;font-weight:500;line-height:20px;cursor:pointer;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05)}.ds-outline:hover,.ds-outline:active{background:hsl(var(--accent))}.ds-outline:focus-visible{outline:3px solid hsl(var(--ring) / .5);outline-offset:2px;}.ds-outline:disabled{opacity:.5;pointer-events:none}"
+    },
+    {
+      "name": "Month Control",
+      "kind": "button",
+      "refersTo": "month-control",
+      "description": "Dashboard month-dialog control, translated from the installed primitive and local size overrides.",
+      "html": "<button class=\"ds-month\">Sep 2026</button>",
+      "css": ".ds-month{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--secondary));color:hsl(var(--secondary-foreground));border:0;border-radius:9999px;min-height:48px;padding:8px 16px;font-size:14px;font-weight:500;line-height:20px;cursor:pointer;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05)}.ds-month:hover,.ds-month:active{background:hsl(var(--secondary) / .8)}.ds-month:focus-visible{outline:3px solid hsl(var(--ring) / .5);outline-offset:2px;}.ds-month:disabled{opacity:.5;pointer-events:none}"
+    },
+    {
+      "name": "Supporting Card",
+      "kind": "card",
+      "refersTo": "dashboard-card",
+      "description": "Borderless flat supporting surface; financial summary overlap retains primitive elevation separately.",
+      "html": "<section class=\"ds-card\"><h2>Monthly budget</h2><p>Recorded spending against your configured budget.</p></section>",
+      "css": ".ds-card{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--card));color:hsl(var(--card-foreground));border:0;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:none}.ds-card h2{font-family:NunitoBold,Nunito,sans-serif;font-size:20px;line-height:28px;letter-spacing:-.025em;margin:0;font-weight:600}.ds-card p{font-size:16px;line-height:24px;margin:0}"
+    },
+    {
+      "name": "Budget Header",
+      "kind": "custom",
+      "refersTo": "budget-header",
+      "description": "Dashboard-specific fixed blue header; sample amount is illustrative.",
+      "html": "<section class=\"ds-header\"><h1>Dashboard</h1><p>Budget left this month</p><strong>₱18,400</strong><p>of ₱30,000 monthly budget</p></section>",
+      "css": ".ds-header{font-family:NunitoRegular,Nunito,sans-serif;position:relative;overflow:hidden;background:hsl(var(--brand-header));color:hsl(var(--brand-header-foreground));border-radius:24px;padding:24px 24px 64px}.ds-header:before{content:\"\";position:absolute;right:-65px;bottom:25px;width:150px;height:150px;border-radius:65px;background:hsl(var(--brand-decoration));transform:rotate(25deg);pointer-events:none}.ds-header>*{position:relative}.ds-header h1{font-family:NunitoBold,Nunito,sans-serif;font-size:30px;line-height:36px;letter-spacing:-.025em;margin:0 0 20px}.ds-header p{font-size:16px;line-height:24px;margin:4px 0}.ds-header strong{font-family:NunitoBold,Nunito,sans-serif;font-size:48px;line-height:48px;font-weight:700}"
+    },
+    {
+      "name": "Budget Progress",
+      "kind": "custom",
+      "refersTo": "progress-track",
+      "description": "Clamped budget-spent fraction; shown at 40 percent.",
+      "html": "<div class=\"ds-progress\" role=\"progressbar\" aria-label=\"Monthly budget spent\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"40\"><div></div></div>",
+      "css": ".ds-progress{height:12px;overflow:hidden;border-radius:9999px;background:hsl(var(--accent))}.ds-progress>div{height:100%;width:40%;border-radius:9999px;background:hsl(var(--primary))}"
+    },
+    {
+      "name": "Navigation Colors",
+      "kind": "nav",
+      "description": "Schematic color demonstration only. NativeTabs owns actual platform geometry, icons, and interaction.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Destinations\"><span aria-current=\"page\">Dashboard</span><span>Explore</span></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-around;background:hsl(var(--background));color:hsl(var(--foreground));padding:16px;gap:24px;font-family:system-ui,sans-serif}.ds-nav [aria-current]{color:hsl(var(--primary));background:hsl(var(--secondary))}"
+    },
+    {
+      "name": "Spending Pie",
+      "kind": "custom",
+      "description": "Compact solid 156px SVG pie; illustrative category amounts paired with explicit labels. Native chart computes arbitrary slices.",
+      "html": "<figure class=\"ds-pie\"><svg width=\"156\" height=\"156\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Food 50 percent, Travel 50 percent\"><path d=\"M50 50 L50 1 A49 49 0 0 1 50 99 Z\" fill=\"hsl(var(--expense))\" stroke=\"white\" stroke-width=\".7\"/><path d=\"M50 50 L50 99 A49 49 0 0 1 50 1 Z\" fill=\"hsl(var(--chart-1))\" stroke=\"white\" stroke-width=\".7\"/></svg><figcaption><p>Food <strong>₱3,000</strong></p><p>Travel <strong>₱3,000</strong></p></figcaption></figure>",
+      "css": ".ds-pie{margin:0;display:flex;flex-direction:column;align-items:center;gap:20px;color:hsl(var(--card-foreground));font-family:NunitoRegular,Nunito,sans-serif}.ds-pie figcaption{width:100%}.ds-pie p{display:flex;justify-content:space-between;gap:12px;font-size:16px;line-height:24px;margin:0 0 16px}.ds-pie strong{font-family:NunitoBold,Nunito,sans-serif}"
+    },
+    {
+      "name": "Month Chevron",
+      "kind": "button",
+      "refersTo": "month-control",
+      "description": "20px rounded SVG chevron in a labeled minimum-48px secondary pill control.",
+      "html": "<button class=\"ds-chevron\" aria-label=\"Previous month\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M15 5L8 12L15 19\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg></button>",
+      "css": ".ds-chevron{display:flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:8px 16px;border:0;border-radius:9999px;background:hsl(var(--secondary));color:hsl(var(--secondary-foreground));box-shadow:0 1px 2px 0 rgb(0 0 0 / .05);cursor:pointer}.ds-chevron:hover,.ds-chevron:active{background:hsl(var(--secondary) / .8)}.ds-chevron:focus-visible{outline:3px solid hsl(var(--ring) / .5);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Ink Blue + Warm Ivory",
+    "overview": "Remidr's approved visual identity combines a confident blue budget header with a warm, quiet canvas and friendly rounded typography. The Dashboard uses compact, rounded surfaces to make financial amounts easy to scan; its remaining-budget figure has the strongest visual emphasis.\n\nThis document records the current Dashboard and shared color theme from source. Dashboard composition stays local to that surface; the shared palette applies across the app. Nunito is loaded inside the Dashboard provider and is not a global replacement for installed React Native Reusables typography. Native rendering has not been validated on this Windows host.",
+    "keyCharacteristics": [
+      "Strong blue budget header and tonal light/dark canvases.",
+      "Rounded Nunito text within Dashboard boundaries.",
+      "Overlapping summary cards and flat supporting cards.",
+      "Compact solid pie paired with category names and amounts."
+    ],
+    "rules": [
+      {
+        "name": "The Fixed Brand Header Rule",
+        "body": "Brand header, white header text, and periwinkle decoration remain the same in both themes. Theme primary changes in dark mode; brandHeader does not.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dashboard Font Boundary Rule",
+        "body": "Use AppText and the DashboardFontContext for Dashboard text. Leave installed ui/text and ui/button primitives intact. Before fonts finish loading, AppText retains the primitive's platform fallback.",
+        "section": "typography"
+      },
+      {
+        "name": "The Supporting Surface Rule",
+        "body": "Supporting Dashboard cards stay borderless and shadowless. Preserve the subtle overlap shadow on financial summaries rather than applying it to every section.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do edit the canonical theme JSON and regenerate its CSS projection.",
+      "Do keep Dashboard Nunito typography inside its provider and AppText wrapper.",
+      "Do use financial semantic colors and readable labels together.",
+      "Do preserve safe-area scrolling, wrapping, and large-font stacking."
+    ],
+    "donts": [
+      "Don't treat income-minus-expenses as remaining monthly budget.",
+      "Don't subtract unpaid commitments from recorded spending.",
+      "Don't promote Dashboard header composition into a requirement for every screen.",
+      "Don't modify installed React Native Reusables primitives to reproduce this Dashboard."
+    ]
+  }
+}

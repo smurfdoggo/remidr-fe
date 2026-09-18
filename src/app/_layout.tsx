@@ -5,7 +5,6 @@ import { Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme as useNativeWindColorScheme } from 'nativewind';
 import { useEffect } from 'react';
-import { Platform } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -18,9 +17,7 @@ export default function RootLayout() {
   const { setColorScheme } = useNativeWindColorScheme();
 
   useEffect(() => {
-    if (Platform.OS === 'web') {
-      setColorScheme(colorScheme);
-    }
+    setColorScheme(colorScheme);
   }, [colorScheme, setColorScheme]);
 
   return (

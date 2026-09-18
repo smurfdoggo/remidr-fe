@@ -81,5 +81,3 @@ router.back();
 ```
 
 Route groups organize navigation without adding a URL segment. Layouts configure navigation rather than creating pages. See the [Expo Router layout guide](https://docs.expo.dev/router/basics/navigation-layouts/).
-
-`npm run reset-project` archives or deletes `src/` and `scripts/`, then generates a minimal `src/app` starter. It intentionally resets this organization; it is not needed for normal development.

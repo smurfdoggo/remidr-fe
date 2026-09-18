@@ -27,7 +27,10 @@
     "chart2": "#16704A",
     "chart3": "#B4533C",
     "chart4": "#936000",
-    "chart5": "#74518C"
+    "chart5": "#74518C",
+    "brandHeader": "#3559C7",
+    "brandHeaderForeground": "#FFFFFF",
+    "brandDecoration": "#829CEE"
   },
   "dark": {
     "background": "#151922",
@@ -57,6 +60,9 @@
     "chart2": "#72D4A5",
     "chart3": "#F2A38D",
     "chart4": "#E9BF68",
-    "chart5": "#C5A4DF"
+    "chart5": "#C5A4DF",
+    "brandHeader": "#3559C7",
+    "brandHeaderForeground": "#FFFFFF",
+    "brandDecoration": "#829CEE"
   }
 }
