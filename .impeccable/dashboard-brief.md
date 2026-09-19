@@ -8,11 +8,11 @@ Approved reference: generated mockup exec-cec03ad7-808b-4d9b-972c-4884aef1b2f9.p
 
 THESIS: Remaining monthly budget is the dominant figure, with income and spending subordinate and unpaid commitments explicit.
 
-OWN-WORLD: Ink blue header, ivory/light or ink/dark canvas, rounded cards, Nunito typography, compact solid spending pie with labeled category amounts.
+OWN-WORLD: Ink blue budget runway, ivory/light or ink/dark canvas, rounded surfaces, Nunito typography, compact solid spending pie with labeled category amounts, and one oversized financial focal point.
 
 STORY: Select a month, understand budget remaining, compare income and spending, inspect spending categories, and see unpaid bills.
 
-FIRST VIEWPORT: Blue header and large remaining budget, month controls above, two overlapping summary cards, budget progress immediately below. Supporting spending and bill sections scroll safely above navigation.
+FIRST VIEWPORT: One blue budget runway leads with the large remaining budget, then keeps plan progress, income, spending, and unpaid-bill context in a single reading path. The quieter spending story begins below and bill details scroll safely above navigation.
 
 FORM: User-selected reference-inspired budgeting dashboard, directly specified; no concept seed required.
 

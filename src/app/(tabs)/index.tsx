@@ -5,8 +5,6 @@ import { useFonts, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from 
 import { DashboardFontContext } from '@/hooks/use-dashboard-font';
 import { useTheme } from '@/hooks/use-theme';
 import { DashboardHeader } from '@/components/dashboard/dashboard-header';
-import { FinancialSummary } from '@/components/dashboard/financial-summary';
-import { BudgetOverview } from '@/components/dashboard/budget-overview';
 import { SpendingBreakdown } from '@/components/dashboard/spending-breakdown';
 import { UnpaidBillsSummary } from '@/components/dashboard/unpaid-bills-summary';
 import { sampleTransactions, sampleBills, sampleBudgets } from '@/data/dashboard-samples';
@@ -19,15 +17,22 @@ export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const analytics = useMemo(() => monthlyAnalytics(sampleTransactions, sampleBills, month.year, month.month, sampleBudgets), [month]);
   return <DashboardFontContext.Provider value={fontsReady}>
-    <ScrollView style={{ flex: 1, backgroundColor: theme.background }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: insets.bottom + 110, paddingHorizontal: 16, alignItems: 'center' }}>
-      <View className="w-full max-w-3xl gap-5">
-        <View>
-          <DashboardHeader month={month} onMonthChange={setMonth} budget={analytics.budgetAmount} remaining={analytics.remainingBudget} />
-          <FinancialSummary income={analytics.income} expense={analytics.expense} />
+    <ScrollView style={{ flex: 1, backgroundColor: theme.background }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: insets.bottom + 110, alignItems: 'center' }}>
+      <View className="w-full" style={{ maxWidth: 800 }}>
+        <View className="mx-4 gap-5">
+          <DashboardHeader
+            month={month}
+            onMonthChange={setMonth}
+            budget={analytics.budgetAmount}
+            remaining={analytics.remainingBudget}
+            used={analytics.budgetUsed}
+            income={analytics.income}
+            expense={analytics.expense}
+            commitments={analytics.commitments}
+          />
+          <SpendingBreakdown categories={analytics.categories} />
+          <UnpaidBillsSummary bills={analytics.unpaidBills} amount={analytics.commitments} />
         </View>
-        <BudgetOverview budget={analytics.budgetAmount} expense={analytics.expense} remaining={analytics.remainingBudget} used={analytics.budgetUsed} />
-        <SpendingBreakdown categories={analytics.categories} />
-        <UnpaidBillsSummary bills={analytics.unpaidBills} amount={analytics.commitments} />
       </View>
     </ScrollView>
   </DashboardFontContext.Provider>;

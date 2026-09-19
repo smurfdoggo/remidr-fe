@@ -7,15 +7,15 @@ import { StepIcon } from '@/components/chevron';
 import type { SelectedMonth } from '@/lib/month';
 export { shiftMonth, type SelectedMonth } from '@/lib/month';
 
-export function MonthPicker({ value, onChange }: { value: SelectedMonth; onChange: (value: SelectedMonth) => void }) {
+export function MonthPicker({ value, onChange, appearance = 'default' }: { value: SelectedMonth; onChange: (value: SelectedMonth) => void; appearance?: 'default' | 'onBrand' }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(value);
   const theme = useTheme();
   const label = new Date(value.year, value.month, 1).toLocaleDateString('en', { month: 'short', year: 'numeric' });
   function close() { setOpen(false); }
   return <>
-    <Button variant="secondary" className="min-h-12 rounded-full px-4" accessibilityLabel={`Choose month, ${label}`} onPress={() => { setDraft(value); setOpen(true); }}>
-      <AppText weight="bold">{label}</AppText>
+    <Button variant="secondary" className={`min-h-12 rounded-full px-4 ${appearance === 'onBrand' ? 'bg-white/15 active:bg-white/25' : ''}`} accessibilityLabel={`Choose month, ${label}`} onPress={() => { setDraft(value); setOpen(true); }}>
+      <AppText weight="bold" style={appearance === 'onBrand' ? { color: theme.brandHeaderForeground } : undefined}>{label}</AppText>
     </Button>
     <Modal transparent visible={open} animationType="fade" onRequestClose={close}>
       <View className="flex-1 items-center justify-center bg-black/40 p-5">

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-18T18:44:35Z",
+  "generatedAt": "2026-09-19T15:21:10Z",
   "title": "Design System: Remidr",
   "extensions": {
     "colorMeta": {
@@ -184,20 +184,6 @@
           "oklch(72.14% 0.0992 310.48)",
           "oklch(83.57% 0.0992 310.48)",
           "oklch(95.00% 0.0992 310.48)"
-        ]
-      },
-      "brand-decoration": {
-        "role": "neutral",
-        "displayName": "Brand Decoration",
-        "tonalRamp": [
-          "oklch(15.00% 0.1240 269.68)",
-          "oklch(26.43% 0.1240 269.68)",
-          "oklch(37.86% 0.1240 269.68)",
-          "oklch(49.29% 0.1240 269.68)",
-          "oklch(60.71% 0.1240 269.68)",
-          "oklch(72.14% 0.1240 269.68)",
-          "oklch(83.57% 0.1240 269.68)",
-          "oklch(95.00% 0.1240 269.68)"
         ]
       },
       "dark-background": {
@@ -399,20 +385,24 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Budget Amount",
-        "purpose": "Remaining budget and no-budget state."
+        "displayName": "Budget Remaining",
+        "purpose": "The single oversized runway amount; tabular numerals and one-line fit."
       },
       "headline": {
         "displayName": "Dashboard Title",
         "purpose": "Local h1 size override."
       },
       "title": {
-        "displayName": "Section Heading",
-        "purpose": "Supporting cards; CSS weight remains inherited from primitive."
+        "displayName": "Financial Total",
+        "purpose": "Income, spent, unpaid-bill, and section totals; tabular numerals where numeric."
       },
       "body": {
         "displayName": "Body",
         "purpose": "Dashboard information; falls back until fonts are loaded."
+      },
+      "label": {
+        "displayName": "Runway Label",
+        "purpose": "Spent/limit endpoints and used/safe-to-spend percentages; numeric labels use tabular numerals."
       }
     },
     "shadows": [
@@ -423,6 +413,16 @@
       }
     ],
     "motion": [
+      {
+        "name": "progress-exponential-out",
+        "value": "500ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Budget progress changes on web; native uses Easing.out(Easing.exp) for 500ms."
+      },
+      {
+        "name": "progress-reduced-motion",
+        "value": "none",
+        "purpose": "Remove the web transition and assign native width directly when reduced motion is requested."
+      },
       {
         "name": "month-dialog-fade",
         "value": "fade",
@@ -438,7 +438,7 @@
       }
     ],
     "provenance": {
-      "source": "Source inspection of current Dashboard and canonical theme-tokens.json; native validation unavailable.",
+      "source": "Source inspection of the current Dashboard, shared Progress primitive, and canonical theme-tokens.json; native validation unavailable.",
       "tonalRamps": "Synthesized OKLCH display strips, not implementation tokens; same hue/chroma stepped from 15% to 95% lightness.",
       "boundaries": "Dashboard AppText font provider only; installed React Native Reusables primitives unchanged.",
       "notCanonized": [
@@ -476,25 +476,25 @@
       "name": "Supporting Card",
       "kind": "card",
       "refersTo": "dashboard-card",
-      "description": "Borderless flat supporting surface; financial summary overlap retains primitive elevation separately.",
-      "html": "<section class=\"ds-card\"><h2>Monthly budget</h2><p>Recorded spending against your configured budget.</p></section>",
-      "css": ".ds-card{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--card));color:hsl(var(--card-foreground));border:0;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:none}.ds-card h2{font-family:NunitoBold,Nunito,sans-serif;font-size:20px;line-height:28px;letter-spacing:-.025em;margin:0;font-weight:600}.ds-card p{font-size:16px;line-height:24px;margin:0}"
+      "description": "Flat 16px Dashboard surface with 20px padding.",
+      "html": "<section class=\"ds-card\"><h2>Where your money went</h2><p>Food led spending at 42%.</p></section>",
+      "css": ".ds-card{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--card));color:hsl(var(--card-foreground));border:0;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:20px;box-shadow:none}.ds-card h2{font-family:NunitoBold,Nunito,sans-serif;font-size:20px;line-height:28px;letter-spacing:-.025em;margin:0;font-weight:700}.ds-card p{font-size:16px;line-height:24px;margin:0}"
     },
     {
-      "name": "Budget Header",
+      "name": "Budget Runway",
       "kind": "custom",
       "refersTo": "budget-header",
-      "description": "Dashboard-specific fixed blue header; sample amount is illustrative.",
-      "html": "<section class=\"ds-header\"><h1>Dashboard</h1><p>Budget left this month</p><strong>₱18,400</strong><p>of ₱30,000 monthly budget</p></section>",
-      "css": ".ds-header{font-family:NunitoRegular,Nunito,sans-serif;position:relative;overflow:hidden;background:hsl(var(--brand-header));color:hsl(var(--brand-header-foreground));border-radius:24px;padding:24px 24px 64px}.ds-header:before{content:\"\";position:absolute;right:-65px;bottom:25px;width:150px;height:150px;border-radius:65px;background:hsl(var(--brand-decoration));transform:rotate(25deg);pointer-events:none}.ds-header>*{position:relative}.ds-header h1{font-family:NunitoBold,Nunito,sans-serif;font-size:30px;line-height:36px;letter-spacing:-.025em;margin:0 0 20px}.ds-header p{font-size:16px;line-height:24px;margin:4px 0}.ds-header strong{font-family:NunitoBold,Nunito,sans-serif;font-size:48px;line-height:48px;font-weight:700}"
+      "description": "Single clean Dashboard runway with remaining amount, labeled progress, and open income/spent stats.",
+      "html": "<section class=\"ds-runway\"><h1>Dashboard</h1><p>Your budget remaining</p><strong>₱18,400</strong><p>From ₱30,000 through Sep 30</p><div class=\"ds-endpoints\"><span>₱11,600 spent</span><span>₱30,000 limit</span></div><div class=\"ds-progress\" role=\"progressbar\" aria-label=\"Monthly budget used\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"39\"><div></div></div><div class=\"ds-endpoints\"><span>39% used</span><span>61% safe to spend</span></div><div class=\"ds-stats\"><p>Income<strong>₱42,000</strong></p><p>Spent<strong>₱11,600</strong></p></div></section>",
+      "css": ".ds-runway{font-family:NunitoRegular,Nunito,sans-serif;background:hsl(var(--brand-header));color:hsl(var(--brand-header-foreground));border-radius:16px;padding:24px;box-shadow:none}.ds-runway h1{font-family:NunitoBold,Nunito,sans-serif;font-size:30px;line-height:36px;letter-spacing:-.025em;margin:0 0 48px}.ds-runway>strong{display:block;font-family:NunitoBold,Nunito,sans-serif;font-size:60px;line-height:60px;font-weight:700;font-variant-numeric:tabular-nums;margin:4px 0}.ds-runway>p{font-size:16px;line-height:24px;margin:0}.ds-endpoints{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:14px;line-height:20px;font-variant-numeric:tabular-nums}.ds-progress{height:8px;overflow:hidden;border-radius:9999px;background:rgb(255 255 255 / .2);margin-top:8px}.ds-progress>div{height:100%;width:100%;transform:translateX(-61%);border-radius:9999px;background:#fff;transition:transform 500ms cubic-bezier(.16,1,.3,1)}@media(prefers-reduced-motion:reduce){.ds-progress>div{transition:none}}.ds-stats{display:grid;grid-template-columns:1fr 1px 1fr;border-top:1px solid rgb(255 255 255 / .28);margin-top:24px;padding-top:16px}.ds-stats:before{content:\"\";grid-column:2;background:rgb(255 255 255 / .28)}.ds-stats p{display:flex;grid-row:1;flex-direction:column;gap:4px;margin:0;padding-right:16px}.ds-stats p+ p{grid-column:3;padding:0 0 0 16px}.ds-stats strong{font-family:NunitoBold,Nunito,sans-serif;font-size:24px;line-height:32px;font-variant-numeric:tabular-nums}"
     },
     {
       "name": "Budget Progress",
       "kind": "custom",
       "refersTo": "progress-track",
-      "description": "Clamped budget-spent fraction; shown at 40 percent.",
-      "html": "<div class=\"ds-progress\" role=\"progressbar\" aria-label=\"Monthly budget spent\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"40\"><div></div></div>",
-      "css": ".ds-progress{height:12px;overflow:hidden;border-radius:9999px;background:hsl(var(--accent))}.ds-progress>div{height:100%;width:40%;border-radius:9999px;background:hsl(var(--primary))}"
+      "description": "Eight-pixel runway progress with labeled endpoints, clamped value, exponential ease-out, and reduced-motion fallback.",
+      "html": "<div class=\"ds-progress\" role=\"progressbar\" aria-label=\"Monthly budget used\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"40\"><div></div></div>",
+      "css": ".ds-progress{height:8px;overflow:hidden;border-radius:9999px;background:rgb(255 255 255 / .2)}.ds-progress>div{height:100%;width:100%;transform:translateX(-60%);border-radius:9999px;background:#fff;transition:transform 500ms cubic-bezier(.16,1,.3,1)}@media(prefers-reduced-motion:reduce){.ds-progress>div{transition:none}}"
     },
     {
       "name": "Navigation Colors",
@@ -521,17 +521,18 @@
   ],
   "narrative": {
     "northStar": "Ink Blue + Warm Ivory",
-    "overview": "Remidr's approved visual identity combines a confident blue budget header with a warm, quiet canvas and friendly rounded typography. The Dashboard uses compact, rounded surfaces to make financial amounts easy to scan; its remaining-budget figure has the strongest visual emphasis.\n\nThis document records the current Dashboard and shared color theme from source. Dashboard composition stays local to that surface; the shared palette applies across the app. Nunito is loaded inside the Dashboard provider and is not a global replacement for installed React Native Reusables typography. Native rendering has not been validated on this Windows host.",
+    "overview": "Remidr's approved visual identity combines a confident blue budget runway with a warm, quiet canvas and friendly rounded typography. The Dashboard makes one oversized remaining-budget amount the focal point, then keeps its plan progress and supporting financial context in one continuous reading path.\n\nThis document records the current Dashboard and shared color theme from source. Dashboard composition stays local to that surface; the shared palette applies across the app. Nunito is loaded inside the Dashboard provider and is not a global replacement for installed React Native Reusables typography. Native rendering has not been validated on this Windows host.",
     "keyCharacteristics": [
-      "Strong blue budget header and tonal light/dark canvases.",
+      "One blue budget runway with an oversized remaining amount.",
       "Rounded Nunito text within Dashboard boundaries.",
-      "Overlapping summary cards and flat supporting cards.",
+      "Flat 16px Dashboard surfaces on a tonal light or dark canvas.",
+      "Labeled progress, open income/spent stats, and tabular financial numerals.",
       "Compact solid pie paired with category names and amounts."
     ],
     "rules": [
       {
-        "name": "The Fixed Brand Header Rule",
-        "body": "Brand header, white header text, and periwinkle decoration remain the same in both themes. Theme primary changes in dark mode; brandHeader does not.",
+        "name": "The Fixed Brand Runway Rule",
+        "body": "Keep the Dashboard's budget runway Ink Blue with white content in both themes. Use transparency from white for its controls, dividers, and progress track.",
         "section": "colors"
       },
       {
@@ -540,20 +541,26 @@
         "section": "typography"
       },
       {
-        "name": "The Supporting Surface Rule",
-        "body": "Supporting Dashboard cards stay borderless and shadowless. Preserve the subtle overlap shadow on financial summaries rather than applying it to every section.",
+        "name": "The Financial Numeral Rule",
+        "body": "Apply tabular numerals to currency totals, runway endpoints, and percentage labels; narrative copy stays proportional.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Dashboard Surface Rule",
+        "body": "Keep Dashboard runway, spending, and unpaid-bill surfaces shadowless. Use tonal contrast and rules for separation.",
         "section": "elevation"
       }
     ],
     "dos": [
       "Do edit the canonical theme JSON and regenerate its CSS projection.",
       "Do keep Dashboard Nunito typography inside its provider and AppText wrapper.",
-      "Do use financial semantic colors and readable labels together.",
-      "Do preserve safe-area scrolling, wrapping, and large-font stacking."
+      "Do use tabular numerals for financial values and percentage endpoints.",
+      "Do preserve labeled progress, safe-area scrolling, wrapping, large-font stacking, and reduced-motion behavior."
     ],
     "donts": [
-      "Don't treat income-minus-expenses as remaining monthly budget.",
+      "Don't treat income minus expenses as remaining monthly budget.",
       "Don't subtract unpaid commitments from recorded spending.",
+      "Don't split the runway's budget, progress, or income/spent context across separate summary surfaces.",
       "Don't promote Dashboard header composition into a requirement for every screen.",
       "Don't modify installed React Native Reusables primitives to reproduce this Dashboard."
     ]

@@ -15,7 +15,6 @@ colors:
   expense: "#B4533C"
   due-soon: "#936000"
   chart-5: "#74518C"
-  brand-decoration: "#829CEE"
   dark-background: "#151922"
   dark-foreground: "#F2F3F7"
   dark-card: "#202735"
@@ -33,24 +32,22 @@ colors:
 typography:
   display:
     fontFamily: "NunitoBold"
-    fontSize: "48px"
+    fontSize: "60px"
     fontWeight: 700
-    lineHeight: "48px"
+    lineHeight: "60px"
+    fontFeature: "tabular-nums"
   headline:
     fontFamily: "NunitoBold"
     fontSize: "30px"
+    fontWeight: 700
     lineHeight: "36px"
     letterSpacing: "-0.025em"
   title:
     fontFamily: "NunitoBold"
-    fontSize: "20px"
-    lineHeight: "28px"
-    letterSpacing: "-0.025em"
-  amount:
-    fontFamily: "NunitoBold"
     fontSize: "24px"
     fontWeight: 700
     lineHeight: "32px"
+    fontFeature: "tabular-nums"
   body:
     fontFamily: "NunitoRegular"
     fontSize: "16px"
@@ -58,9 +55,10 @@ typography:
     lineHeight: "24px"
   label:
     fontFamily: "NunitoSemibold"
-    fontSize: "16px"
+    fontSize: "14px"
     fontWeight: 600
-    lineHeight: "24px"
+    lineHeight: "20px"
+    fontFeature: "tabular-nums"
   button-label:
     fontFamily: "NunitoRegular"
     fontSize: "14px"
@@ -69,7 +67,8 @@ typography:
 rounded:
   control: "8px"
   inset: "12px"
-  surface: "24px"
+  surface: "16px"
+  dialog: "24px"
   pill: "9999px"
 spacing:
   one: "4px"
@@ -88,7 +87,7 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.card}"
     rounded: "{rounded.surface}"
-    padding: "24px 24px 64px"
+    padding: "24px"
   month-control:
     backgroundColor: "{colors.secondary}"
     textColor: "{colors.foreground}"
@@ -108,9 +107,9 @@ components:
     padding: "8px 16px"
     height: "48px"
   progress-track:
-    backgroundColor: "{colors.accent}"
+    backgroundColor: "rgba(255,255,255,0.20)"
     rounded: "{rounded.pill}"
-    height: "12px"
+    height: "8px"
 ---
 # Design System: Remidr
 
@@ -118,14 +117,15 @@ components:
 
 **Creative North Star: "Ink Blue + Warm Ivory"**
 
-Remidr's approved visual identity combines a confident blue budget header with a warm, quiet canvas and friendly rounded typography. The Dashboard uses compact, rounded surfaces to make financial amounts easy to scan; its remaining-budget figure has the strongest visual emphasis.
+Remidr's approved visual identity combines a confident blue budget runway with a warm, quiet canvas and friendly rounded typography. The Dashboard makes one oversized remaining-budget amount the focal point, then keeps its plan progress and supporting financial context in one continuous reading path.
 
 This document records the current Dashboard and shared color theme from source. Dashboard composition stays local to that surface; the shared palette applies across the app. Nunito is loaded inside the Dashboard provider and is not a global replacement for installed React Native Reusables typography. Native rendering has not been validated on this Windows host.
 
 **Key Characteristics:**
-- Strong blue budget header and tonal light/dark canvases.
+- One blue budget runway with an oversized remaining amount.
 - Rounded Nunito text within Dashboard boundaries.
-- Overlapping summary cards and flat supporting cards.
+- Flat 16px Dashboard surfaces on a tonal light or dark canvas.
+- Labeled progress, open income/spent stats, and tabular financial numerals.
 - Compact solid pie paired with category names and amounts.
 
 ## Colors
@@ -133,30 +133,29 @@ This document records the current Dashboard and shared color theme from source. 
 Ink Blue anchors the identity; Warm Ivory and white separate the light canvas and surfaces.
 
 ### Primary
-- **Ink Blue** (`primary`): primary actions, progress fill, selected navigation labels, and the fixed brand header.
-- **Soft Blue** (`accent`): progress track and positive remaining-budget inset.
-- **Periwinkle** (`brand-decoration`): the header's clipped geometric accent.
+- **Ink Blue** (`primary`): primary actions, selected navigation labels, and the fixed brand runway.
+- **Soft Blue** (`accent`): quiet blue tonal emphasis outside the runway.
 
 ### Secondary
-- **Financial Green** (`income`): income totals and chart segments.
-- **Terracotta** (`expense`): spending totals and chart segments.
-- **Amber** (`due-soon`): unpaid bill totals and chart segments.
+- **Financial Green** (`income`): income semantics and chart segments.
+- **Terracotta** (`expense`): spending semantics and chart segments.
+- **Amber** (`due-soon`): unpaid bill semantics and chart segments.
 - **Plum** (`chart-5`): additional chart category distinction.
 - **Alert Red** (`destructive`): destructive semantics and the `overdue` alias used for over-budget messaging.
 
 ### Neutral
 - **Warm Ivory** (`background`): light canvas.
-- **White** (`card`): light cards, popovers, primary foreground, and fixed brand-header foreground.
+- **White** (`card`): light cards, popovers, primary foreground, and brand-runway foreground.
 - **Ink** (`foreground`): light text and light card/popover/secondary foreground.
 - **Warm Gray** (`secondary`): secondary controls and the `muted` alias.
 - **Slate** (`muted-foreground`): supporting descriptions.
 - **Cool Border** (`border`): borders and the `input` alias.
 
-Dark colors are the corresponding `dark-*` frontmatter entries. Dark primary foreground uses dark background; dark card/popover/secondary foreground uses dark foreground. Dark accent foreground has its own token. The dark theme lightens financial and chart colors for legibility.
+Dark colors are the corresponding `dark-*` frontmatter entries. The brand runway remains Ink Blue with white content in both themes, while theme primary changes in dark mode. Dark card/popover/secondary foreground uses dark foreground, and dark accent foreground has its own token. The dark theme lightens financial and chart colors for legibility.
 
-**The Fixed Brand Header Rule.** Brand header, white header text, and periwinkle decoration remain the same in both themes. Theme primary changes in dark mode; brandHeader does not.
+**The Fixed Brand Runway Rule.** Keep the Dashboard's budget runway Ink Blue with white content in both themes. Use transparency from white for its controls, dividers, and progress track.
 
-The canonical source is `src/constants/theme-tokens.json`. `npm run theme:generate` generates the HSL channel variables in `src/global.css`; Tailwind and native theme values derive from this source. Do not edit generated HSL values independently. Chart aliases use primary, income, expense, dueSoon, and chart5, in that order in the shared theme; the Dashboard legend deliberately starts with expense.
+The canonical source is `src/constants/theme-tokens.json`. `npm run theme:generate` generates the HSL channel variables in `src/global.css`; Tailwind and native theme values derive from this source. Do not edit generated HSL values independently. Chart aliases use primary, income, expense, dueSoon, and chart5 in the shared theme; the Dashboard legend deliberately starts with expense.
 
 ## Typography
 
@@ -164,71 +163,71 @@ The canonical source is `src/constants/theme-tokens.json`. `npm run theme:genera
 **Body Font:** NunitoRegular (loaded Nunito 400 asset).
 **Label Font:** NunitoSemibold (loaded Nunito 600 asset).
 
-**Character:** Rounded letterforms soften financial data without weakening its hierarchy. The font-family names in frontmatter are the Expo registration names, not browser-installed family names.
+**Character:** Rounded letterforms soften financial data without weakening its hierarchy. Financial amounts and percentages use tabular numerals so values align and remain steady as they change. The font-family names in frontmatter are Expo registration names, not browser-installed family names.
 
 ### Hierarchy
-- **Display:** remaining-budget amount or no-budget message.
-- **Headline:** Dashboard title; inherits the h1 variant's weight and tight tracking with a local size override.
-- **Title:** supporting card headings; inherits the h4 variant's semibold CSS weight while selecting the bold font asset.
-- **Amount:** income and spending summary values; also the month-dialog heading through h3.
-- **Body:** budget context, category amounts, and supporting explanations.
-- **Label:** summary labels and category names; header budget label uses an enlarged body size (18px / 28px).
-- **Button label:** inherits the primitive button text context; month chooser explicitly selects the bold asset. Font-family asset selection and primitive CSS font weights are separate mechanisms.
+- **Display (700, 60px / 60px):** the remaining-budget amount or no-budget state; it may scale down to 68% to stay on one line.
+- **Headline (700, 30px / 36px):** the Dashboard title, with tight tracking.
+- **Title (700, 24px / 32px):** income, spent, unpaid-bill, and prominent section totals.
+- **Body (400, 16px / 24px):** budget context, category descriptions, and supporting explanations.
+- **Label (600, 14px / 20px):** runway endpoints and percentages; the runway status label uses an enlarged 18px body size.
+- **Button label (500, 14px / 20px):** inherited primitive button text; the month chooser explicitly selects the bold asset.
 
 **The Dashboard Font Boundary Rule.** Use AppText and the DashboardFontContext for Dashboard text. Leave installed ui/text and ui/button primitives intact. Before fonts finish loading, AppText retains the primitive's platform fallback.
 
+**The Financial Numeral Rule.** Apply tabular numerals to currency totals, runway endpoints, and percentage labels; narrative copy stays proportional.
+
 ## Layout
 
-Dashboard is a centered, scrollable single column, with horizontal gutters (16px), maximum content width (768px), and section gaps (20px). Top padding is the safe-area inset plus 16px; bottom clearance is the safe-area inset plus 110px.
+Dashboard is a centered, scrollable single column with 16px horizontal gutters, a maximum content width of 800px, and 20px section gaps. Top padding is the safe-area inset plus 16px; bottom clearance is the safe-area inset plus 110px.
 
-The blue header has generous bottom space. Income and spending cards overlap it by 40px, are inset 12px from its edges, have a 12px gap, and wrap with a minimum width of 130px per card. This composition is Dashboard-specific.
+The header is a single continuous budget runway. Its month controls lead into the remaining amount, spent/limit endpoints, progress, used/safe-to-spend percentages, and an open two-column income/spent row divided by 1px rules. Unpaid commitments remain a short explicit note beneath those stats.
 
 The spending pie defaults to 156px. Pie and legend sit side by side only when window width is at least 600px and fontScale is at most 1.2; otherwise they stack. Category names can grow while amounts remain alongside. The month dialog caps width at 448px, uses a wrapping three-column month grid (30% item width), and caps its month scroll area at 300px.
 
 ## Elevation & Depth
 
-Depth combines tonal separation, card overlap, and a restrained primitive shadow. Summary cards retain Card's small black-at-5%-opacity shadow; budget, spending, and bill cards explicitly remove it. Buttons retain the installed primitive's small shadow where that variant provides one. Header decoration is clipped, inert, and hidden from accessibility.
+Dashboard depth is primarily tonal: the Ink Blue runway, white or dark cards, Soft Blue unpaid-bill panel, and thin dividers establish hierarchy. Dashboard content surfaces are flat and borderless. Buttons retain the installed primitive's small shadow where that variant provides one; the month modal uses a translucent black scrim.
 
-**The Supporting Surface Rule.** Supporting Dashboard cards stay borderless and shadowless. Preserve the subtle overlap shadow on financial summaries rather than applying it to every section.
+**The Flat Dashboard Surface Rule.** Keep Dashboard runway, spending, and unpaid-bill surfaces shadowless. Use tonal contrast and rules for separation.
 
 ## Shapes
 
-Dashboard surfaces and the month dialog use broad rounded corners (`surface`). Remaining-budget status insets use `inset`; month-header controls and progress bars use `pill`. Dialog action controls retain the primitive's `control` radius. Shared primitive radius remains the generated base radius (10px); Dashboard surface overrides do not redefine that shared base.
+Dashboard runway and supporting surfaces use a consistent 16px radius (`surface`). The month dialog keeps a broader 24px radius (`dialog`). Month-header controls and progress bars use `pill`; dialog action controls retain the primitive's 8px `control` radius. Shared primitive radius remains the generated 10px base, and Dashboard overrides do not redefine it.
 
 ## Components
 
 ### Buttons
-Month-header controls are secondary pill buttons with minimum 48px touch dimensions. Month chevrons and year step controls use 20px SVG vectors with rounded 2.5px strokes, colored from secondary foreground and foreground respectively. Apply uses the primary variant; Cancel, year controls, and unselected months use outline. The selected month uses primary and exposes its selected accessibility state. Web hover and active treatments come from the installed Button primitive: primary at 90% opacity, secondary at 80%, outline to accent; keyboard focus uses a 3px ring at 50% ring-color opacity. Disabled controls inherit 50% opacity.
+Month-header controls are translucent-white pill buttons with minimum 48px touch dimensions. Month chevrons and year step controls use 20px SVG vectors with rounded 2.5px strokes. Apply uses the primary variant; Cancel, year controls, and unselected months use outline. The selected month uses primary and exposes its selected accessibility state. Web hover and active treatments come from the installed Button primitive; keyboard focus uses a 3px ring at 50% ring-color opacity. Disabled controls inherit 50% opacity.
 
 ### Cards / Containers
-Supporting cards use the dashboard-card frontmatter token, 16px internal gaps for budget/spending and 8px for bills. Financial summary cards use 16px horizontal and 20px vertical padding and an 8px internal gap. Amounts use financial semantic colors rather than the brand accent indiscriminately.
+The spending card and unpaid-bill summary use 16px corners and 20px padding. The spending card is a flat card-colored surface; unpaid bills use the accent surface. The header is one 16px Ink Blue surface with 24px padding. Internal gaps vary from 8px to 20px according to information density.
 
 ### Navigation
-NativeTabs has exactly Dashboard and Explore. Its background follows the theme canvas, indicator follows secondary, and selected label follows primary. Labels and icons remain platform-managed; navigation is outside the Dashboard Nunito provider. The sidecar's navigation sample is a schematic color/boundary illustration, not a native rendering specification.
+NativeTabs has exactly Dashboard and Explore. Its background follows the theme canvas, indicator follows secondary, and selected label follows primary. Labels and icons remain platform managed; navigation is outside the Dashboard Nunito provider. The sidecar's navigation sample is a schematic color and boundary illustration, not a native rendering specification.
 
-### Budget Header and Progress
-Header remaining budget means configured monthly budget minus recorded spending. Income minus expenses is a separate balance, and unpaid bills are separate commitments. Preserve the distinct no-budget and over-budget messages. Progress clamps finite values into 0–100% and has an accessible label/value. The sample-data disclosure describes data provenance, not a reusable chip style.
+### Budget Runway and Progress
+The runway's remaining budget means configured monthly budget minus recorded spending. Income minus expenses is separate, and unpaid bills are separate commitments. Preserve the distinct no-budget and over-budget messages. When a budget exists, label both progress endpoints (`spent` and `limit`) and both percentages (`used` and `safe to spend`). Progress clamps finite values into 0–100%, exposes an accessible label/value, and animates for 500ms with exponential ease-out. Reduced-motion settings remove the web transition and assign the native width directly. The sample-data disclosure describes data provenance, not a reusable chip style.
 
 ### Spending Breakdown
-Use a solid pie with explicit legend labels and currency amounts. Nonfinite or nonpositive slices are omitted; a single category renders a full circle. The chart exposes percentage descriptions to accessibility. White slice seams are an implementation detail present in both themes, not a required rule for future dark charts.
+Use a solid 156px pie with explicit legend labels and currency amounts. Nonfinite or nonpositive slices are omitted; a single category renders a full circle. The chart exposes percentage descriptions to accessibility. White slice seams are an implementation detail present in both themes, not a required rule for future dark charts.
 
 ### Component Boundaries
-The screen owns selected month, font loading, safe-area scrolling, and analytics composition. Dashboard components receive computed data and render one section each. MonthPicker owns its modal draft selection and commits only on Apply; PieChart is a reusable rendering helper. BudgetOverview uses the Reusables Progress primitive directly. Keep money formatting, monthly calculations, and SelectedMonth/shiftMonth in their existing library helpers; MonthPicker reexports the month helper contract. Route links use the central DASHBOARD_HREF adapter for the actual / route. Shared ui primitives stay reusable; apply surface-specific styling through local props.
+The screen owns selected month, font loading, safe-area scrolling, and analytics composition. DashboardHeader owns the full budget runway, including month selection, progress, income/spent stats, and commitment note. SpendingBreakdown and UnpaidBillsSummary render the two supporting sections. MonthPicker owns its modal draft selection and commits only on Apply; PieChart and Progress remain reusable rendering helpers. Keep money formatting, monthly calculations, and SelectedMonth/shiftMonth in their existing library helpers. Shared ui primitives stay reusable; apply surface-specific styling through local props.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** edit the canonical theme JSON and regenerate its CSS projection.
 - **Do** keep Dashboard Nunito typography inside its provider and AppText wrapper.
-- **Do** use financial semantic colors and readable labels together.
-- **Do** preserve safe-area scrolling, wrapping, and large-font stacking.
+- **Do** use tabular numerals for financial values and percentage endpoints.
+- **Do** preserve labeled progress, safe-area scrolling, wrapping, large-font stacking, and reduced-motion behavior.
 
 ### Don't:
-- **Don't** treat income-minus-expenses as remaining monthly budget.
+- **Don't** treat income minus expenses as remaining monthly budget.
 - **Don't** subtract unpaid commitments from recorded spending.
+- **Don't** split the runway's budget, progress, or income/spent context across separate summary surfaces.
 - **Don't** promote Dashboard header composition into a requirement for every screen.
 - **Don't** modify installed React Native Reusables primitives to reproduce this Dashboard.
 
 Not canonized: primitive weight/font-asset mismatches and white dark-chart seams are recorded rather than normalized into future rules. Source inspection does not establish native rendering quality.
-
-

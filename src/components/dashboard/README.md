@@ -1,10 +1,10 @@
 # Dashboard components
 
-This folder contains presentation components used only by Dashboard: its branded header, financial summaries, budget overview, spending breakdown, and unpaid-bills summary. They receive computed values through props and do not fetch or mutate data.
+This folder contains presentation components used only by Dashboard: its branded budget runway, spending breakdown, and unpaid-bills summary. They receive computed values through props and do not fetch or mutate data.
 
 The route owns the selected month and composes these sections. Read-only fixtures live in `src/data/dashboard-samples.ts`; calculations live in `src/lib/analytics.ts`.
 
-Generic month selection, pie-chart geometry, and rounded text live outside this folder. Budget progress uses React Native Reusables' `Progress` directly. All surfaces and controls reuse the installed primitives in `src/components/ui`; those primitives keep their existing defaults.
+Generic month selection, pie-chart geometry, and rounded text live outside this folder. The runway uses React Native Reusables' `Progress` directly and integrates income and spending so the remaining budget stays dominant. All surfaces and controls reuse the installed primitives in `src/components/ui`; those primitives keep their existing defaults.
 
 Remaining budget is monthly budget minus recorded spending. Income is separate. Paid bills are represented by expense transactions; unpaid bills are shown separately to avoid double counting.
 
